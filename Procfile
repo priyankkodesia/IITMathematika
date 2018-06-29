@@ -1,0 +1,1 @@
+web: gunicorn Final__IIT.wsgi --log-file -

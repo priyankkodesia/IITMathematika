@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse">
+    <!-- Brand and toggle get grouped for better mobile display -->
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+       <li><a class="navbar-brand" href="{% url 'teacher_home' %}" style="margin-top:8px;font-weight:bold;font-size:21px">HOME</a></li>
+      <li><a href="{% url 'register' %}"><button type="button" class="btn btn-primary btn-md">Add Student</button></a></li>
+      <li><a href="{% url 'fetch_form' %}"><button type="button" class="btn btn-primary btn-md">Edit/Delete Details</button></a></li>
+      <li><a href="{% url 'student_list' %}"><button type="button" class="btn btn-primary btn-md">View Students</button></a></li>
+    			
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a href="{% url 'logout' %}" style="margin-top:8px;font-weight:bold;font-size:21px">LOGOUT</a></li>
+   
+      </ul>
+      <form class="navbar-form navbar-right">
+          <button class='btn btn-info' style="margin-right:10px;margin-top:8px;text-decoration:none"><a href="{% url 'password_change' %}" style="text-decoration:none;color:white">Password Change</a></button>
+      
+        
+      </form>
+    </div><!-- /.navbar-collapse -->
+
+</nav>

@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">  
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" crossorigin="anonymous">
+    <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg2-HieP-OHslV7h32Ihg1Guj4zGbMxhA"></script> 
+    <style>
+    .carousel-item img{
+        width:100%;
+        height:450px
+    }
+    .video-showcase{
+        height:300px;
+    }
+    .video-heading{
+        font-family: cursive;
+        font-size: 15px
+    }
+    .showcase-text{
+        text-align:center
+    }
+    .img-fluid.rounded-circle{
+        height:180px;
+        width:120px
+    }
+    #map{
+        border-radius:2%;
+        border:0.5px solid black;
+    }
+    .contact-us{
+        color:white;
+    }
+
+    </style>
+
+</head>
+  <body>
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand mx-2" href="#">IIT MATHEMATIKA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse float-lg-right" id="navbarTogglerDemo02">
+                <a class="ml-auto" href="{% url 'login' %}">
+                    <button class="btn btn-outline-success my-2 my-sm-0" >
+                    Login</button>
+                </a>
+                
+            </div>
+            </nav>
+
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to={0} class="active" />
+        <li data-target="#carouselExampleIndicators" data-slide-to={1} />
+        <li data-target="#carouselExampleIndicators" data-slide-to={2} />
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <img class="d-block img-fluid" src="http://kb4images.com/images/math-pictures/36544950-math-pictures.jpg"  alt="First slide" />
+        </div>
+        <div class="carousel-item">
+          
+          <img class="d-block img-fluid" src="https://www.goalcast.com/wp-content/uploads/2017/03/Albert-Einstein-quotes-Genius1.jpg" alt="Second slide" />
+    
+        </div>
+        <div class="carousel-item">
+          <img class="d-block img-fluid" src="https://ak0.picdn.net/shutterstock/videos/3808370/thumb/3.jpg" alt="Third slide" />
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" />
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" />
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">WELCOME TO IIT MATHEMATIKA</h5>
+        <p class="card-text">We give students the support they need, exactly when they need it.</p>
+      </div>
+    </div>
+    <img class="d-block img-fluid" src="{% static 'landing_features.jpg' %}"  alt="First slide" />
+    <div class="card text-center video-heading">
+            <div class="card-body">
+              <h4 class="card-title">All Students are Awesome...</h4>
+              <p class="card-text">Some of them stand apart</p>
+            </div>
+          </div>
+      <section class="showcase">
+        <div class="container-fluid p-0">
+          <div class="row no-gutters video-showcase">
+            <div class="col-lg-6 order-lg-2 text-white">      
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/V6yixyiJcos">
+            </iframe></div>
+            <div class="col-sm-6 order-lg-1 my-auto showcase-text">
+              <h2>Math isn't hard..It's a Language</h2>
+              <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+            </div>
+          </div>
+          <div class="row no-gutters video-showcase">
+            <div class="col-sm-6 my-auto showcase-text order-lg-2">
+              <h2>How you can be good at Maths</h2>
+              <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+            </div>
+            <div class="col-sm-6 order-lg-1 text-white">      
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3icoSeGqQtY">
+            </iframe></div>
+                      
+          </div>
+          <div class="row no-gutters video-showcase">
+          <div class="col-lg-6 my-auto showcase-text">
+              <h2>The science of Vedic Maths</h2>
+              <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+            </div>
+            <div class="col-lg-6 order-lg-2 text-white">      
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/grkWGeqW99c">
+            </iframe></div>
+          </div>
+        </div>
+      </section>
+      <section class="testimonials text-center bg-light">
+        <div class="card text-center">
+            <div class="card-body">
+                <h4 class="card-title" style="font-size: bold">What people are saying...</h4>
+            </div>
+            </div><br/>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                <img class="img-fluid rounded-circle mb-3" src="{% static 'testimonials-1.jpg' %}" alt />
+                <h5>Margaret E.</h5>
+                <p class="font-weight-light mb-0">"This is fantastic! Got Great Results!"</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                <img class="img-fluid rounded-circle mb-3" src="{% static 'testimonials-2.jpg' %}" alt />
+                <h5>Fred S.</h5>
+                <p class="font-weight-light mb-0">"It's been like a family which learns together."</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                <img class="img-fluid rounded-circle mb-3" src="{% static 'testimonials-3.jpg' %}" alt />
+                <h5>Sarah	W.</h5>
+                <p class="font-weight-light mb-0">"Wouldn't be possible without wonderful resources they provide."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><br/>
+            <img id="map-marker" src = "{% static 'map-marker.jpg' %}" hidden=true/>
+       <footer class="footer" >
+        <div class="card text-center" >
+          <div class="card-header">
+            <h4>Contact Us</h4>
+          </div>
+          <div class="card-body contact-us" style="background-color:darkslategray">
+          <div class="row list-inline">
+          <div class="col-sm-4 list-inline-item mx-auto my-auto">
+          <h5 class="card-title">Rohit Saxena</h5>
+                  <p class="card-text">Senior Instructor</p>
+                  <h6 class="card-text mx-auto">Address :</h6><p class="card-text">Gangapur Rd, sancheti complex, Near vidya vikas,opp. Modern cafe,above sagar book store.thatte nagar, Patil Colony, Nashik, Maharashtra 422013</p>
+                  <div class="text-inline"><h6 class="card-text">Mobile : <p class="card-text">9373828775</p></h6></div></div>
+              <div class="col-sm-6 list-inline-item"  >
+                  <div id="map" style="width:80%;height:250px;"></div>
+            </div>
+            </div>
+              </div>
+             </div> 
+        </footer>
+    </div> 
+    <script>
+
+        $(function () {
+
+        function initMap() {
+
+            var location = new google.maps.LatLng(20.0117671,73.7677239);
+
+            var mapCanvas = document.getElementById('map');
+            var mapOptions = {
+                center: location,
+                zoom: 14,
+                panControl: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var markerImage = document.getElementById('map-marker');
+
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                icon: markerImage
+            });
+
+            var contentString = '<div class="info-window">' +
+                    '<h3>Info Window Content</h3>' +
+                    '<div class="info-content">' +
+                    '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>' +
+                    '</div>' +
+                    '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                maxWidth: 400
+            });
+
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+
+
+}
+
+        google.maps.event.addDomListener(window, 'load', initMap);
+        });
+    </script>   
+  </body>
+</html>

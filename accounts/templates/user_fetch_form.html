@@ -1,0 +1,120 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+        <title>UPDATE</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  		$(document).ready(function(){
+  			$('#class_name_id').on('change',function(){
+  					var optionSelected = $(this).find('option:selected');
+  					var class_name = optionSelected.val();
+  					$.ajax({
+  					
+  						type:'POST',
+  						url:'/student_fetch/',
+  						data:{
+  							'class_name' : class_name,
+  							csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+  							
+  						},
+  						success:function(result_set){
+							$('#student_username option').remove(); 
+							$.each(result_set, function(index, obj) {
+								$('#student_username').append('<option> </option>'); 
+
+									$.each(obj, function(key, value) {
+											$('#student_username').append('<option '+'value = '+ value.pk + '>'+ value.name  + '</option>'); 
+											
+								         });
+									
+								
+							});
+					}
+  			});
+  			})
+  			
+  $('#student_username').on('change',function(){
+	     var userpk=$('#student_username').find('option:selected').val();
+	     var url_mask_edit = "{% url 'update' pk=12345 %}".replace(/12345/, userpk);
+	     var url_mask_delete = "{% url 'delete_user' pk=123456 %}".replace(/123456/, userpk);
+
+	     console.log(url_mask_edit)
+	     $('#submit-link-edit').attr("href",url_mask_edit);
+	     $('#submit-link-delete').attr("href",url_mask_delete);
+
+	     console.log(userpk)	    	 
+	     })
+	  
+	  
+  })
+    							       
+  </script>
+ <style>
+body{background-color: black;}
+ .container{
+ 			background-color:#1bbec6;
+ 			border-radius:5px;
+ 			max-width:50%;
+ 			margin:auto;
+ 			margin-top:12%;
+ 			padding-top:50px;padding-bottom:50px;
+ 			font-weight:bold;
+ 			border:2px solid black }
+
+.close{float:right;margin-right:5px;margin-top:-40px;font-size:30px;color:black;}
+ </style>
+  </head>
+  <body>
+    <div class=container>
+       <a id="close-btn" href="{% url 'teacher_home' %}" ><button type="button" class="close">&times;</button></a>
+    
+          <form method="GET" enctype="multipart/form-data">
+           {% csrf_token %}
+           
+ 	 		 <div class="form-group row">
+      			<legend class="col-form-legend col-sm-2 col-sm-offset-3">Class</legend>
+    				<div class="col-sm-4">
+						<select class="form-control" name="class_name" id="class_name_id">
+					      <option></option>
+					      <option value='8'>8</option>
+						  <option value='9'>9</option>
+					      <option value='10'>10</option>
+					      <option value='11'>11</option>
+					      <option value='12'>12</option>
+					    </select>
+  					</div>
+ 			   </div>
+  
+    
+   			   <div class="form-group row">
+           		  <legend class="col-form-legend col-sm-2 col-sm-offset-3">Student:</legend>
+       					<div class="col-sm-4">
+							<select class="form-control" name="username" id="student_username">
+     		 					      <option></option>
+     		 
+   						    </select>
+     				    </div>
+     				   
+    		   </div>&nbsp;
+    		   <div class="form-group row">
+   				    <div class="col-sm-3 col-sm-offset-3">
+   				    	<a href="" id="submit-link-edit"><input class="form-control btn btn-primary" type="button" name="submit" id="submit-btn" value="Edit"></a>
+   				  	</div>
+   				  	 <div class="col-sm-3 ">	
+   				  		<a href="" id="submit-link-delete"><input class="form-control btn btn-danger" type="button" name="submit" id="submit-btn" value="Delete"></a>
+   				  
+   				    </div> 
+ 			   </div>
+   		
+  		  </form>
+  		  
+    </div>
+    
+    </body>
+    </html>
+  

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load utils %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<style>
+body{background-color:rgb(225, 237, 243)}
+.container{max-width:100%;background-color:#333;color:white;text-align:center}
+.student_name{font-size:15px}
+.student_name:hover{font-size:15px;color:green;}
+
+</style>
+<div class='container-fluid'>
+	  {% for obj in obj_list %}
+	  	{% for key,value in obj.items %}    
+		<div class="row">
+			<h2 id="class_name">CLASS : {{ key }}</h2>&nbsp;&nbsp;<p>Student Count: {{ value|get_count }}
+		</div>
+		<div class="row">
+		{% for obj in value %}
+		<div class="col-sm-3">
+		<div class="card" style="width: 18rem;">
+				<a href="{{ obj.get_absolute_url }}" class="student_name">
+			<img class="card-img-top" style="width:150px;height:150px;border-radius:3%;border:1px solid black" src="{{ obj.profile_pic.url }}" alt="Card image cap">
+			<div class="card-body">
+			  <p class="card-text">{{ obj|upper }}</p>
+			</div>
+			</a>
+		  </div>
+		  </div>
+		  {% endfor %}
+		</div>
+		{% endfor %}
+	{% endfor %} 
+       
+  </div>     
+</div>
+{% endblock content %}
