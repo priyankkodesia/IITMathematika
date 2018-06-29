@@ -1,5 +1,5 @@
 """
-WSGI config for URL_Shortener project.
+WSGI config for Final__IIT project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
