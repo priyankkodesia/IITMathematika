@@ -29,9 +29,9 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = 'h3z8ywfy97f466rcl7i$7kw^kwq$hkm-rb)&8f0dff2w$iimvy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['www.IITmathematika.com','www.iitmathematika.com','127.0.0.1','.herokuapp.com']
+ALLOWED_HOSTS = ['www.IITmathematika.com','www.iitmathematika.com','iitmathematika.com','127.0.0.1','.herokuapp.com']
 
 AUTH_USER_MODEL='accounts.Myuser'
 # Application definition
@@ -145,7 +145,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 #STATIC_ROOT = "/home/cfedeploy/webapps/cfehome_static_root/"
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "/media/profile_pics"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
 
